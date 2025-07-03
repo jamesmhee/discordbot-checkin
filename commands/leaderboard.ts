@@ -8,8 +8,9 @@ export async function leaderboardCommand(interaction: ChatInputCommandInteractio
     .get();
 
   let message = '** 🏆 อันดับคนที่สวัสดีบาส **\n';
+  
   snapshot.docs.forEach((doc, i) => {
-    message += `${i + 1}. <${doc.id}> - ${doc.data().points} แต้ม\n`;
+    message += `${i + 1}. <@${doc.id}> - ${doc.data().points} แต้ม\n`;
   });
 
   await interaction.reply({ content: message, ephemeral: false });
