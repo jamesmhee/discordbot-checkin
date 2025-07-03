@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "tsx index.ts",
     "register": "tsx registerCommands.ts",
-    "start": "tsx index.ts"
+    "build": "tsc",
+    "start": "node dist/index.js"
   },
   "dependencies": {
     "discord.js": "^14.11.0",

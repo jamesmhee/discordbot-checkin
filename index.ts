@@ -4,6 +4,7 @@ import dotenv from 'dotenv';
 import { checkinCommand } from './commands/checkin';
 import { leaderboardCommand } from './commands/leaderboard';
 import './firebase/firebase';
+import { getTded } from './commands/tded';
 
 dotenv.config();
 
@@ -21,14 +22,14 @@ client.once('ready', () => {
 client.on('interactionCreate', async interaction => {
   if (!interaction.isChatInputCommand()) return;
 
-  const { commandName } = interaction;
+  const { commandName } = interaction;  
 
   if (commandName === 'checkin') {
     await checkinCommand(interaction);
   } else if (commandName === 'leaderboard') {
     await leaderboardCommand(interaction);
-  } else if (commandName === 'สวัสดีบาส') {
-    await checkinCommand(interaction);
+  } else if (commandName === 'tded') {
+    await getTded(interaction);
   }
 });
 
