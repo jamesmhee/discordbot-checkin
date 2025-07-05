@@ -1,10 +1,11 @@
 import cron from 'node-cron';
 import { Client, GatewayIntentBits, ChannelType, TextChannel } from 'discord.js';
 import dotenv from 'dotenv';
-import { checkinCommand } from './commands/checkin';
-import { leaderboardCommand } from './commands/leaderboard';
-import './firebase/firebase';
-import { getTded } from './commands/tded';
+import { checkinCommand } from '../commands/checkin';
+import { leaderboardCommand } from '../commands/leaderboard';
+import '../firebase/firebase';
+import { getTded } from '../commands/tded';
+import { getPower } from '../commands/getPower';
 
 dotenv.config();
 
@@ -30,6 +31,8 @@ client.on('interactionCreate', async interaction => {
     await leaderboardCommand(interaction);
   } else if (commandName === 'tded') {
     await getTded(interaction);
+  } else if (commandName === 'รวมพลัง') {
+    await getPower(interaction)
   }
 });
 
